@@ -109,6 +109,8 @@ class Event():
     def assignDrivers(self):
         driver_count = 0 
         drivers_assigned = []
+        if self.drivers == 0: 
+            return drivers_assigned
         for i in range(self.max_soberShifts + 1):
             for name in self.sober_data_dict: 
                 if self.sober_data_dict[name] == i:
@@ -132,6 +134,9 @@ class Event():
     def assignRoamers(self): 
         roamer_count = 0
         roamers_assigned = []
+
+        if self.roamers == 0:
+            return roamers_assigned
 
         for i in range(self.max_soberShifts + 1):
             for name in self.sober_data_dict: 
@@ -157,6 +162,9 @@ class Event():
         stationary_count = 0
         stationaries_assigned = []
 
+        if self.stationaries == 0:
+            return stationaries_assigned
+
         for i in range(self.max_soberShifts + 1):
             for name in self.sober_data_dict: 
                 if self.sober_data_dict[name] == i:
@@ -180,6 +188,9 @@ class Event():
     def assignList(self): 
         list_count = 0
         list_assigned = []
+
+        if self.list == 0:
+            return list_assigned
 
         for i in range(self.max_soberShifts + 1):
             for name in self.sober_data_dict: 
@@ -205,6 +216,9 @@ class Event():
         bartender_count = 0
         bartenders_assigned = []
 
+        if self.bartenders == 0:
+            return bartenders_assigned
+
         for i in range(self.max_soberShifts + 1):
             for name in self.sober_data_dict: 
                 if self.sober_data_dict[name] == i:
@@ -213,7 +227,7 @@ class Event():
                             bartenders_assigned.append(name)
                             self.sobers.append(name)
                             bartender_count = bartender_count + 1
-                        else:
+                        elif self.bartenders_twenty_one == False:
                             bartenders_assigned.append(name)
                             self.sobers.append(name)
                             bartender_count = bartender_count + 1
@@ -228,6 +242,9 @@ class Event():
     def assignExec(self): 
         exec_count = 0
         exec_assigned = []
+
+        if self.exec == 0:
+            return exec_assigned
 
         for i in range(self.max_soberShifts + 1):
             for name in self.sober_data_dict: 
@@ -246,20 +263,8 @@ class Event():
         return exec_assigned
     
 
-        
-    
-
-
-
 
     def resetSobers(self): 
         self.sobers = []
 
     
-    
-
-
-
-
-
-            
